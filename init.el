@@ -8,14 +8,20 @@
 (setq inhibit-splash-screen t)
 
 ;;encoding
-(set-language-environment "chinese-gbk")
+;;(set-language-environment "chinese-gbk")
 ;;(set-language-environment "utf-8")
 
 ;;use-package
 (require 'use-package)
 
+;;nlinum
+(require 'nlinum)
 
-;;================dev config ========
+;;color theme
+(require 'monokai-theme)
+(load-theme 'monokai 1)
+
+;;================dev config =========================================
 ;;show the line number
 (global-nlinum-mode)
 
@@ -24,7 +30,6 @@
 ;;set the rpc python to python3
 ;;set the interactiv python to python3
 (require 'elpy)
-
 (use-package elpy
   :config
   (setq elpy-rpc-python-command "python3")
@@ -46,6 +51,8 @@
 (require 'xcscope)
 (add-hook 'c++-mode-hook '(lambda() (cscope-enable)))
 (add-hook 'c-mode-hook '(lambda() (cscope-enable)))
+(add-hook 'c++-mode-hook '(lambda() (set-language-environment "chinese-gbk")))
+(add-hook 'c-mode-hook '(lambda() (set-language-environment "chinese-gbk")))
 ;;bind shortcut
 (use-package xcscope
   :bind (("C-c s s" . cscope-find-this-symbol)
@@ -59,4 +66,5 @@
 ;;cscope end
 
 ;;==========================end=======================
+
 (put 'erase-buffer 'disabled nil)
