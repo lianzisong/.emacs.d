@@ -16,10 +16,15 @@
 
 
 ;;================dev config ========
+;;show the line number
+(global-nlinum-mode)
+
 ;;python
-(require 'elpy)
+
 ;;set the rpc python to python3
 ;;set the interactiv python to python3
+(require 'elpy)
+
 (use-package elpy
   :config
   (setq elpy-rpc-python-command "python3")
@@ -36,6 +41,7 @@
 
 ;;company end
 
+;;c/c++ 
 ;;cscope
 (require 'xcscope)
 (add-hook 'c++-mode-hook '(lambda() (cscope-enable)))
