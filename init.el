@@ -25,6 +25,18 @@
 ;;show the line number
 (global-nlinum-mode)
 
+;;treemacs
+(use-package treemacs
+  :ensure t
+  :defer t
+  :config
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  :bind
+  (:map global-map
+	("M-0" . treemacs-select-window))
+  )
+
 ;;python
 
 ;;set the rpc python to python3
